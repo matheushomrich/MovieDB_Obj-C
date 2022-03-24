@@ -7,6 +7,7 @@
 
 #import "Movie.h"
 
-@implementation NSObject (Movie)
+
+@implementation Movie
 
 @end
