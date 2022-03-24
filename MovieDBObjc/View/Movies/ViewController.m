@@ -46,7 +46,7 @@
 
 
 - (nonnull UITableViewCell *)tableView:(nonnull UITableView *)tableView cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
-    MovieTableViewCell *cell = (MovieTableViewCell *)[tableView dequeueReusableCellWithIdentifier: @"movieCell"];
+    MovieTableViewCell *cell = (MovieTableViewCell *)[tableView dequeueReusableCellWithIdentifier: @"movie-cell"];
     
     NSArray *movies;
     
@@ -92,11 +92,11 @@
     
     NSDictionary *movie = [movies objectAtIndex:indexPath.row];
     
-    [self  performSegueWithIdentifier: @"toDetails" sender: movie];
+    [self  performSegueWithIdentifier: @"detail-segue" sender: movie];
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    if ([[segue identifier] isEqualToString: @"toDetails"]) {
+    if ([[segue identifier] isEqualToString: @"detail-segue"]) {
         MovieDetailsViewController *vc = [segue destinationViewController];
         
         NSDictionary *movie = (NSDictionary *) sender;

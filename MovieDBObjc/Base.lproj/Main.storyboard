@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="vat-1U-gLw">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="vat-1U-gLw">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -11,7 +12,7 @@
         <!--Movies-->
         <scene sceneID="fOS-aG-5Qs">
             <objects>
-                <viewController title="Movies" id="JGa-kH-lRz" customClass="ViewController" customModule="MovieDBObjc" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Movies" id="JGa-kH-lRz" customClass="ViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="mRZ-9i-aPR">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -21,7 +22,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" id="2je-0x-lOI" customClass="MovieTableViewCell" customModule="MovieDBObjc" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="movie-cell" id="2je-0x-lOI" customClass="MovieTableViewCell" customModule="MovieDBObjc" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="44.5" width="414" height="152.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="2je-0x-lOI" id="Rzn-Fo-VLS">
@@ -69,13 +70,10 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="descriptionLabel" destination="t4v-tP-eAq" id="TY8-qg-NbL"/>
-                                            <outlet property="overview" destination="t4v-tP-eAq" id="DGX-fD-Uzo"/>
-                                            <outlet property="poster" destination="h4p-2a-3JZ" id="kD5-3A-2gA"/>
-                                            <outlet property="posterImageView" destination="h4p-2a-3JZ" id="CVu-gq-UVg"/>
-                                            <outlet property="rating" destination="bQL-2I-cil" id="snq-7Y-6gq"/>
-                                            <outlet property="ratingLabel" destination="bQL-2I-cil" id="FZI-UB-oRC"/>
-                                            <outlet property="titleLabel" destination="Dih-Uk-7pv" id="nbK-YA-hlf"/>
+                                            <outlet property="descriptionLabel" destination="t4v-tP-eAq" id="GS1-ur-499"/>
+                                            <outlet property="posterImageView" destination="h4p-2a-3JZ" id="RJq-Fb-jmF"/>
+                                            <outlet property="ratingLabel" destination="bQL-2I-cil" id="cDu-Ja-Tkl"/>
+                                            <outlet property="titleLabel" destination="Dih-Uk-7pv" id="cIq-9b-55o"/>
                                             <segue destination="66h-KJ-YZA" kind="show" identifier="detail-segue" trigger="accessoryAction" id="dfe-pO-6AP"/>
                                         </connections>
                                     </tableViewCell>
@@ -154,6 +152,12 @@
                                                 <constraint firstItem="pGz-IX-iw8" firstAttribute="leading" secondItem="Nuh-fo-6J1" secondAttribute="leading" constant="21" id="wAD-bp-uVf"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="movieGenresLabel" destination="et2-O5-9XG" id="R2V-0q-sbQ"/>
+                                            <outlet property="movieImageView" destination="pGz-IX-iw8" id="wUS-t4-AEy"/>
+                                            <outlet property="movieRatingLabel" destination="evU-F5-xI6" id="ik6-ei-3o5"/>
+                                            <outlet property="movieTitleLabel" destination="YeG-nd-wrI" id="bKa-Bk-Ch6"/>
+                                        </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="overview-cell" id="1mG-TY-ElK" customClass="OverviewDetailTableViewCell" customModule="MovieDBObjc" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="275" width="414" height="69"/>
@@ -189,7 +193,7 @@
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="overview" destination="PyH-2Q-f8P" id="vlq-BT-zdC"/>
-                                            <outlet property="overviewLabel" destination="Yg5-Na-tsQ" id="vJq-hv-Mde"/>
+                                            <outlet property="overviewLabel" destination="Yg5-Na-tsQ" id="Vil-kl-DAf"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
