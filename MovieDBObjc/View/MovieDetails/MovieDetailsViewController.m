@@ -11,7 +11,6 @@
 @interface MovieDetailsViewController ()
 
 @property (weak, nonatomic) IBOutlet UITableView *movieDetailsTableView;
-@property (weak, nonatomic) IBOutlet UITableView *overviewTableView;
 
 @end
 
@@ -22,8 +21,6 @@
     [super viewDidLoad];
     _movieDetailsTableView.dataSource = self;
     _movieDetailsTableView.delegate = self;
-    _overviewTableView.dataSource = self;
-    _overviewTableView.delegate = self;
     
     self.title = @"DetailMovies";
 }
