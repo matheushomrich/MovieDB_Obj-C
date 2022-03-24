@@ -5,8 +5,19 @@
 //  Created by Nicolas Godoy on 22/03/22.
 //
 
-#ifndef MovieDetailTableViewCell_h
-#define MovieDetailTableViewCell_h
+#import <UIKit/UIKit.h>
+#import "Movie.h"
 
+NS_ASSUME_NONNULL_BEGIN
 
-#endif /* MovieDetailTableViewCell_h */
+@interface MovieDetailTableViewCell: UITableViewCell
+
+@property (weak, nonatomic) IBOutlet UIImageView *movieImageView;
+@property (weak, nonatomic) IBOutlet UILabel *movieTitleLabel;
+@property (weak, nonatomic) IBOutlet UILabel *movieGenresLabel;
+@property (weak, nonatomic) IBOutlet UILabel *movieRatingLabel;
+
+- (void) configureMovieDetail: (NSString*)title genres: (NSString*) genres rating: (NSNumber*) rating path: (NSString *) path;
+@end
+
+NS_ASSUME_NONNULL_END

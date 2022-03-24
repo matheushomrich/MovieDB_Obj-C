@@ -5,40 +5,42 @@
 //  Created by Nicolas Godoy on 22/03/22.
 //
 
-//#import "MovieTableViewCell.h"
-//
-//@implementation MovieTableViewCell
-//
-//- (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
-//{
-//    self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
-//    if (self) {
-//        [self.]
-//    }
-//}
-//
-//@end
+#import "MovieTableViewCell.h"
+#import <SDWebImage/UIImageView+WebCache.h>
 
+@implementation MovieTableViewCell
 
-//#import "DashboardCell.h"
-//
-//@implementation DashboardCell
-//
-//- (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
-//{
-//    self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
-//    if (self) {
-//        [self.numberOfOverdueMails setBackgroundColor:[UIColor colorWithRed:244/255.0f green:119/255.0f blue:125/255.0f alpha:1.0f]];
-//        [self.numberOfOverdueMails setTitle:@"lol" forState:UIControlStateNormal];
-//    }
-//    return self;
-//}
-//
-//- (void)setSelected:(BOOL)selected animated:(BOOL)animated
-//{
-//    [super setSelected:selected animated:animated];
-//
-//    // Configure the view for the selected state
-//}
-//
-//@end
+- (void)prepareForReuse {
+    [super prepareForReuse];
+    _posterImageView.image = NULL;
+    _titleLabel.text = NULL;
+    _descriptionLabel.text = NULL;
+    _ratingLabel.text = NULL;
+}
+
+- (void) configureMovie: (NSString*)title overview: (NSString*) overview rating: (NSNumber*) rating path: (NSString *) path {
+    NSString *completePath = @"https://image.tmdb.org/t/p/w500";
+    completePath = [completePath stringByAppendingString: path];
+    [_posterImageView sd_setImageWithURL:[NSURL URLWithString: completePath]];
+    
+    if (title != nil) {
+        _titleLabel.text = title;
+    } else {
+        _titleLabel.text = @"No title available";
+    }
+    
+    if (overview != nil) {
+        _descriptionLabel.text = overview;
+    } else {
+        _descriptionLabel.text = @"No description available";
+    }
+    
+    if (rating != nil) {
+        _ratingLabel.text = [NSString stringWithFormat: @"%@", rating];
+    } else {
+        _ratingLabel.text = @"No rating available";
+    }
+    
+}
+
+@end

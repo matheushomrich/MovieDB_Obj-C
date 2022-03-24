@@ -5,8 +5,12 @@
 //  Created by Nicolas Godoy on 22/03/22.
 //
 
-#ifndef TmdbAPI_h
-#define TmdbAPI_h
+#import <Foundation/Foundation.h>
 
 
-#endif /* TmdbAPI_h */
+@interface TmdbAPI : NSObject
+
+typedef void (^COMPLETION_BLOCK)(NSDictionary *json, NSError *error);
+- (void)get:(NSString *)path completionBlock: (COMPLETION_BLOCK) completion;
+
+@end

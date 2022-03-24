@@ -9,16 +9,18 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface NSObject (Movie)
+@interface Movie : NSObject
 
-@property int *id;
-@property (strong, nonatomic) NSString *title;
-@property (strong, nonatomic) NSString *image;
-@property (strong, nonatomic) NSString *overview;
-@property (strong, nonatomic) NSObject *rating;
-@property int genre_ids[];
-@property (strong, nonatomic) NSArray *genres;
+@property NSNumber *id;
+@property NSString *title;
+@property NSURL *poster_path;
+@property NSData *poster;
+@property NSString *overview;
+@property NSObject *vote_average;
+@property NSString *genre_ids;
+@property NSArray *genres;
 
 @end
 
 NS_ASSUME_NONNULL_END
+
