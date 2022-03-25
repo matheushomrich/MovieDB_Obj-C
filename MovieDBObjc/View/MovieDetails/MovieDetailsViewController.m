@@ -27,21 +27,17 @@
 
 - (nonnull UITableViewCell *)tableView:(nonnull UITableView *)tableView cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
     
-    if (indexPath == 0) {
+    if (indexPath.row == 0) {
         MovieDetailTableViewCell *cell = (MovieDetailTableViewCell *)[tableView dequeueReusableCellWithIdentifier: @"detail-cell"];
         
-        NSDictionary *movie;
-        
-        [cell configureMovieDetail: [movie objectForKey:@"title"] genres:[movie objectForKey: @"genres"] rating: [movie objectForKey: @"vote_average"] path: [movie objectForKey:@"poster_path"]];
+        [cell configureMovieDetail: [_movie objectForKey:@"title"] genres:[_movie objectForKey: @"genres"] rating: [_movie objectForKey: @"vote_average"] path: [_movie objectForKey:@"poster_path"]];
         
         return cell;
         
     } else {
         OverviewDetailTableViewCell *cell = (OverviewDetailTableViewCell *)[tableView dequeueReusableCellWithIdentifier: @"overview-cell"];
         
-        NSDictionary *movie;
-        
-        cell.overviewLabel.text = movie.description;
+        cell.overviewLabel.text = _movie[@"overview"];
         
         return cell;
     }
