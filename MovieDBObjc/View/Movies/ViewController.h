@@ -6,8 +6,6 @@
 //
 
 #import <UIKit/UIKit.h>
-
-#import <UIKit/UIKit.h>
 #import "MovieTableViewCell.h"
 #import "TmdbAPI.h"
 #import "MovieDetailsViewController.h"
@@ -22,6 +20,3 @@
 - (void) loadNowPlayingMovies;
 
 @end
-
-
-

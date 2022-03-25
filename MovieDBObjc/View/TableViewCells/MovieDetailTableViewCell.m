@@ -23,7 +23,6 @@
     completePath = [completePath stringByAppendingString: path];
     [_movieImageView sd_setImageWithURL:[NSURL URLWithString: completePath]];
     
-    
     if (title != nil) {
         _movieTitleLabel.text = title;
     } else {

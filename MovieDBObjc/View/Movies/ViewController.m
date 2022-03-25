@@ -43,8 +43,6 @@
     }];
 }
 
-
-
 - (nonnull UITableViewCell *)tableView:(nonnull UITableView *)tableView cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
     MovieTableViewCell *cell = (MovieTableViewCell *)[tableView dequeueReusableCellWithIdentifier: @"movie-cell"];
     
@@ -104,6 +102,5 @@
         vc.movie = movie;
     }
 }
-
 
 @end

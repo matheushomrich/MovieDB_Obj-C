@@ -40,7 +40,6 @@
     } else {
         _ratingLabel.text = @"No rating available";
     }
-    
 }
 
 @end
